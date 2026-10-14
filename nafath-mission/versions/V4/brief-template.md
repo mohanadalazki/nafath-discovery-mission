@@ -13,11 +13,14 @@ Resource: NIST AI 100-2e2025 — Adversarial Machine Learning A Taxonomy and Ter
 OWASP MASVS defines security and privacy controls for mobile applications, covering storage, cryptography, authentication, networking, platform interaction, code, resilience, and privacy. Developers use it to specify requirements; testers verify applicable controls using OWASP MASTG procedures and MASWE weakness mappings. For the provider, I recommend retaining test evidence and recording failed controls before release. MASVS is a verification standard, rather than an automatic scanner or a guarantee that an app cannot be compromised.
 Resource: OWASP MASVS – https://mas.owasp.org/MASVS/
 ## Networking
-
+BGP hijacking occurs when an attacker announces another network’s address space, potentially attracting traffic through a preferred route or more-specific prefix. RPKI provides signed Route Origin Authorizations linking prefixes to authorized origin autonomous systems and permitted prefix lengths. Route origin validation classifies announcements as Valid, Invalid, or Not Found; configured filtering can reject Invalid routes. It does not authenticate the complete AS path, prevent every route leak, encrypt traffic, or establish that a Not Found route is malicious.
+Resource: RFC 6811 — BGP Prefix Origin Validation – https://www.rfc-editor.org/rfc/rfc6811
 ## Cybersecurity
-
+Log4j’s Log4Shell vulnerability, CVE-2021-44228, allowed attacker-controlled logged content to trigger JNDI interactions that could execute remote code. Apache rated it CVSS 10.0 because exploitation could occur remotely without authentication or user interaction, with severe confidentiality, integrity, and availability impacts. Log4j 2.15.0 initially addressed this CVE for Java 8+, but related flaws required further updates. The provider should inventory affected log4j-core dependencies and upgrade to a supported release incorporating subsequent security fixes.
+Resource: Apache Logging Services — Security – https://logging.apache.org/security.html
 ## Data
-
+An SBOM inventories software components and dependencies. The 2026 minimum elements include component producer, name, version, identifiers, dependency relationships, hash value, hash algorithm, and license; plus SBOM author, author signature, timestamp, format name and version, generation context, tool name and version, and SBOM version. It should be machine-processable, cover transitive dependencies, identify unknown information, and support updates and delivery. This helps the provider locate vulnerable components; an inventory alone does not prove software is secure.
+Resource: 2026 Minimum Elements for a Software Bill of Materials SBOM – https://www.cyber.gov.au/publication/2026-minimum-elements-for-a-software-bill-of-materials-sbom
 ## Misconception in My Track
 
 ## Open Question
