@@ -4,11 +4,14 @@ Track: <one of: Software | AI | Mobile | Networking | Cybersecurity | Data>
 ## Overview
 A national service provider needs coordinated controls because compromise can enter through application code, external libraries, AI models, mobile clients, or internet routing. Separating deployment configuration from code reduces credential exposure and supports controlled changes. Adversarial machine learning assessment addresses manipulated inputs and corrupted training processes. Mobile security verification checks whether the client protects sensitive information and communicates securely. Routing validation reduces unauthorized origin announcements, while vulnerability management removes exploitable components such as affected Log4j libraries. An accurate software inventory connects these activities by identifying dependencies and supporting targeted remediation. The project manager should require documented verification evidence, assign control owners, and track unresolved risks before deployment. No single control guarantees that compromise is impossible. My Networking track focuses on BGP route hijacking and the capabilities and limitations of RPKI origin validation.
 ## Software
-
+The Twelve-Factor App methodology stores deployment-specific configuration, including service credentials, in environment variables, separate from application code. Configuration changes between deployments; code should not need changing for each environment. Hardcoded secrets can leak through repositories and make credential rotation difficult. For this provider, I recommend controlled runtime injection of credentials and restricted access to deployment settings. Environment variables support separation, but still require protection against unintended logging or disclosure.
+Resource: The Twelve-Factor App — III. Config – https://12factor.net/config
 ## AI
-
+Evasion attacks manipulate inputs during inference to make a deployed model produce incorrect results. Poisoning attacks corrupt training data, labels, or model updates, altering learned behavior; backdoor poisoning introduces trigger-dependent failures. Privacy attacks infer sensitive training information, while model extraction attempts to reproduce a model through queries. Generative systems also face abuse attacks, including prompt injection. These categories differ by attack stage, attacker access, and objective, so the provider must assess both training integrity and deployed behavior.
+Resource: NIST AI 100-2e2025 — Adversarial Machine Learning A Taxonomy and Terminology of Attacks and Mitigations – https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2025.pdf
 ## Mobile
-
+OWASP MASVS defines security and privacy controls for mobile applications, covering storage, cryptography, authentication, networking, platform interaction, code, resilience, and privacy. Developers use it to specify requirements; testers verify applicable controls using OWASP MASTG procedures and MASWE weakness mappings. For the provider, I recommend retaining test evidence and recording failed controls before release. MASVS is a verification standard, rather than an automatic scanner or a guarantee that an app cannot be compromised.
+Resource: OWASP MASVS – https://mas.owasp.org/MASVS/
 ## Networking
 
 ## Cybersecurity
